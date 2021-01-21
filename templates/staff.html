@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    <form method="POST">
+    {% for order in orders %}
+        ORDER NUMBER: {{order.getID()}} <button name="update" value={{order.getID()}}> Update Status </button> <button name="delete" value={{order.getID()}}> Remove Order </button> <br>
+        {% for item in order.getMain() %}
+            {{item.__class__()}} <br>
+            {% for ingredient in item.getIngredients() %}
+                {{ingredient.getName()}} : {{item.getIngredients()[ingredient]}} <br>
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    </form>
+{% endblock %}

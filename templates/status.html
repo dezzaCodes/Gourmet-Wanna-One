@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+    <form method="POST">
+        <input type="number" name="orderID">Enter order number <button name="status" type="submit" > Check Status </button>
+    </form>
+
+    {% if status %}
+        {{status}}
+    {% endif %}
+{% endblock %}
