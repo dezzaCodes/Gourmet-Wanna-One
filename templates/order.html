@@ -1,34 +1,34 @@
 {% extends "base.html" %}
-	{% block body %}
-		{% if not main %}
-			<form method="POST">
-				What would you like to order? <br>
-				<button name="burger" type="submit"> Single Burger </button>
-				<button name="wrap" type="submit"> Wrap </button>
-				<button name="order" type="submit"> Place Order </button>
-			</form>
-		{% endif %}
+{% block body %}
+	{% if not main %}
+		<form method="POST">
+			What would you like to order? <br>
+			<button name="burger" type="submit"> Single Burger </button>
+			<button name="wrap" type="submit"> Wrap </button>
+			<button name="order" type="submit"> Place Order </button>
+		</form>
+	{% endif %}
 
-		{% if main=="Burger" and not inventory %}
-			<form method="POST">
-				<button name="custom" type="submit" value="custom"> Custom Burger </button>
-				<button name="cheeseburger" type="submit" value="cheeseburger"> Cheese Burger </button>
-			</form>
-		{% endif %}
+	{% if main=="Burger" and not inventory %}
+		<form method="POST">
+			<button name="custom" type="submit" value="custom"> Custom Burger </button>
+			<button name="cheeseburger" type="submit" value="cheeseburger"> Cheese Burger </button>
+		</form>
+	{% endif %}
 
-		{% if inventory or main=="Wrap" %}
-			<form method="POST">
-			Customise your {{main}} <br>
-				{% for key in inventory %}
-					{{key.getName()}}:
-					<select name="{{key.getName()}}">
-						<option value="0"> 0 </option>
-						<option value="1"> 1 </option>
-						<option value="2"> 2 </option>
-						<option value="3"> 3 </option>
-					</select>
-				{% endfor %}
-				<br> <button name="main"> Add To Order </button>
-			</form>
-		{% endif %}
-	{% endblock %}
+	{% if inventory or main=="Wrap" %}
+		<form method="POST">
+		Customise your {{main}} <br>
+			{% for key in inventory %}
+				{{key.getName()}}:
+				<select name="{{key.getName()}}">
+					<option value="0"> 0 </option>
+					<option value="1"> 1 </option>
+					<option value="2"> 2 </option>
+					<option value="3"> 3 </option>
+				</select>
+			{% endfor %}
+			<br> <button name="main"> Add To Order </button>
+		</form>
+	{% endif %}
+{% endblock %}

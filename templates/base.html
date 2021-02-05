@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
 
 <body>
 
-<h1>Welcome to Gourmet Wanna One !</h1>
-<a href="{{url_for('order')}}">Order</a>
-<a href="{{url_for('inventory')}}">Inventory</a>
-<a href="{{url_for('staff')}}">Staff</a>
-<a href="{{url_for('status')}}">Status</a>
-<br>
-{% block body %}
-{% endblock %}
+    <h1>Welcome to Gourmet Wanna One !</h1>
+    <a href="{{url_for('order')}}">Order</a>
+    <a href="{{url_for('inventory')}}">Inventory</a>
+    <a href="{{url_for('staff')}}">Staff</a>
+    <a href="{{url_for('status')}}">Status</a>
+    <br>
+
+    {% block body %}
+    {% endblock %}
 
 </body>
 </html>

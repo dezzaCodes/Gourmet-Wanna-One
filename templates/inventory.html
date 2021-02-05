@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block body %}
-  <form method="POST">
-    Ingredient:
-    <input type="text" name="ingredient"><br><br>
-    Amount:
-    <input type="text" name="amount"><br><br>
-    Price:
-    <input type="text" name="price"><br><br>
-    <input type="submit" name="add" value="Add to Inventory">
-  </form>
-
-  {% for item in inventory %}
     <form method="POST">
-      {{item.getName()}} : {{inventory[item]}} <input type="text" name={{item.getName()}}> <input type="submit" name="plus" value="+"> <input type="submit" name="minus" value="-"> <br>
+        Ingredient:
+        <input type="text" name="ingredient"><br><br>
+        Amount:
+        <input type="text" name="amount"><br><br>
+        Price:
+        <input type="text" name="price"><br><br>
+        <input type="submit" name="add" value="Add to Inventory">
     </form>
-  {% endfor %}
+
+    {% for item in inventory %}
+        <form method="POST">
+            {{item.getName()}} : {{inventory[item]}} <input type="text" name={{item.getName()}}> <input type="submit" name="plus" value="+"> <input type="submit" name="minus" value="-"> <br>
+        </form>
+    {% endfor %}
 {% endblock %}
