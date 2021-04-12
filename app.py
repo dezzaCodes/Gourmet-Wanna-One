@@ -28,7 +28,6 @@ def order():
 		if "burger" in request.form:
 			order = restaurant.createOrder()
 			userID = order.getID()
-			# main = restaurant.makeBurger()
 			return render_template('order.html', main="Burger")
 
 		if "custom" in request.form:
